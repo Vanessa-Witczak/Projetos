@@ -9,6 +9,7 @@ def escolher_categoria(request):
 
 def listar_plantas(request, categoria):
     plantas = Planta.objects.filter(categoria=categoria)
+
     return render(request, 'ListarPlantas.html', {'plantas': plantas, 'categoria': categoria})
 
 
