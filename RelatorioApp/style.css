@@ -1,0 +1,40 @@
+body {
+    background-color: #1e1e1e;
+    color: #e0ffe0;
+}
+
+h1, h2, h3 {
+    color: #88ff88;
+}
+
+a {
+    color: #a0f0a0;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.btn-primary, .btn-success, .btn-secondary {
+    background-color: #2e5e2e;
+    border-color: #2e5e2e;
+}
+
+.btn-primary:hover, .btn-success:hover, .btn-secondary:hover {
+    background-color: #4e8e4e;
+    border-color: #4e8e4e;
+}
+
+.table {
+    background-color: #2b2b2b;
+    color: #e0ffe0;
+}
+
+.table th {
+    background-color: #335533;
+}
+
+.table td {
+    background-color: #2f2f2f;
+}

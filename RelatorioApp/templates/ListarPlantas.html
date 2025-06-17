@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+     <title>Plantas - {{ categoria }}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="container mt-5">
+    <h1>Plantas - {{ categoria|title }}</h1>
+    <a href="{% url 'NovaPlanta' categoria %}" class="btn btn-success mb-3">Cadastrar Nova Planta</a>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Nome</th><th>Data Plantio</th><th>Adubo</th><th>Fase</th><th>Observação</th><th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr>
+                <td>{{ planta.nome }}</td>
+                <td>{{ planta.data_plantio }}</td>
+                <td>{{ planta.adubo }}</td>
+                <td>{{ planta.fase }}</td>
+                <td>{{ planta.observacao }}</td>
+                <td>
+                    <a href="{% url 'editar_planta' %}" class="btn btn-sm btn-primary">Editar</a>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <a href="{% url 'EscolherCategoria' %}" class="btn btn-secondary">Voltar</a>
+</body>
+</html>
