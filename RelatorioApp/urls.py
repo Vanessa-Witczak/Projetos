@@ -3,10 +3,11 @@ from django.urls import include, path
 
 from RelatorioApp import views
 
-urlpatterns = [
-    path('categoria/<str:categoria>/', views.listar_plantas, name='listar_plantas'),
-    path('categoria/<str:categoria>/nova/', views.nova_planta, name='NovaPlanta'),
-    path('editar/<int:pk>/', views.listar_plantas, name='EditarPlanta'),
-    path('cadastros/', views.listar_todos, name='ListarTodos'),
+app_name = 'RelatorioApp'
 
+urlpatterns = [
+    path('', views.escolher_categoria, name='escolher_categoria'),
+    path('categoria/<str:categoria>/', views.listar_plantas, name='listar_plantas'),
+    path('editar/<int:pk>/',views.editar_planta, name='editar_plantas'),
+    path('cadastrar/<str:categoria>/',views.nova_planta, name='cadastrar_plantas'),
 ]

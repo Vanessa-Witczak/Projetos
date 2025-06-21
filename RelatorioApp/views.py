@@ -9,6 +9,7 @@ def escolher_categoria(request):
 
 def listar_plantas(request, categoria):
     plantas = Planta.objects.filter(categoria=categoria)
+    print(plantas)
 
     return render(request, 'ListarPlantas.html', {'plantas': plantas, 'categoria': categoria})
 
@@ -20,7 +21,7 @@ def nova_planta(request, categoria):
             planta = form.save(commit=False)
             planta.categoria = categoria
             planta.save()
-            return redirect('ListarPlantas', categoria=categoria)
+            return redirect('RelatorioApp:listar_plantas', categoria=categoria)
     else:
         form = PlantaForm()
     return render(request, 'NovaPlanta.html', {'form': form, 'categoria': categoria})
@@ -32,7 +33,7 @@ def editar_planta(request, pk):
         form = PlantaForm(request.POST, instance=planta)
         if form.is_valid():
             form.save()
-            return redirect('ListarPlantas', categoria=planta.categoria)
+            return redirect('RelatorioApp:listar_plantas', categoria=planta.categoria)
     else:
         form = PlantaForm(instance=planta)
     return render(request, 'NovaPlanta.html', {'form': form, 'categoria': planta.categoria})

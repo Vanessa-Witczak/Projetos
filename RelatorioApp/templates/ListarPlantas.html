@@ -7,7 +7,7 @@
 </head>
 <body class="container mt-5">
     <h1>Plantas - {{ categoria|title }}</h1>
-    <a href="{% url 'NovaPlanta' categoria %}" class="btn btn-success mb-3">Cadastrar Nova Planta</a>
+    <a href="{% url 'RelatorioApp:cadastrar_plantas' categoria %}" class="btn btn-success mb-3">Cadastrar Nova Planta</a>
     <table class="table table-bordered table-striped">
         <thead>
             <tr>
@@ -15,20 +15,23 @@
             </tr>
         </thead>
         <tbody>
-
+            {% for planta in plantas %}
             <tr>
                 <td>{{ planta.nome }}</td>
-                <td>{{ planta.data_plantio }}</td>
-                <td>{{ planta.adubo }}</td>
-                <td>{{ planta.fase }}</td>
-                <td>{{ planta.observacao }}</td>
+                <td>{{ planta.Data_Do_Plantio }}</td>
+                <td>{{ planta.Adubo }}</td>
+                <td>{{ planta.Fase }}</td>
+                <td>{{ planta.Observacao }}</td>
                 <td>
-                    <a href="{% url 'editar_planta' %}" class="btn btn-sm btn-primary">Editar</a>
+                    <a href="{% url 'RelatorioApp:editar_plantas' planta.id %}" class="btn btn-sm btn-primary">Editar</a>
                 </td>
             </tr>
+            {% empty %}
+                <tr><td colspan="6">Nenhum Cadastro Encontrado!</td></tr>
+            {% endfor %}
 
         </tbody>
     </table>
-    <a href="{% url 'EscolherCategoria' %}" class="btn btn-secondary">Voltar</a>
+    <a href="{% url 'RelatorioApp:escolher_categoria' %}" class="btn btn-secondary">Selecionar Categoria</a>
 </body>
 </html>

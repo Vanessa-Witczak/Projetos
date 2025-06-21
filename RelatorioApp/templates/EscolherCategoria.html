@@ -8,10 +8,9 @@
 <body class="container mt-5">
     <h1 class="mb-4">Escolha A Categoria:</h1>
     <ul class="list-group mb-4">
-        <li class="list-group-item"><a href="{% url 'ListarPlantas' 'Leguminosa' %}">Leguminosa</a></li>
-        <li class="list-group-item"><a href="{% url 'ListarPlantas' 'Hortaliça' %}">Hortaliça</a></li>
-        <li class="list-group-item"><a href="{% url 'ListarPlantas' 'Fruta' %}">Fruta</a></li>
+        <li class="list-group-item"><a href="{% url 'RelatorioApp:listar_plantas' 'leguminosa' %}">Leguminosa</a></li>
+        <li class="list-group-item"><a href="{% url 'RelatorioApp:listar_plantas' 'hortaliça' %}">Hortaliça</a></li>
+        <li class="list-group-item"><a href="{% url 'RelatorioApp:listar_plantas' 'fruta' %}">Fruta</a></li>
     </ul>
-    <a href="{% url 'ListarTodos' %}" class="btn btn-primary">Ver Todos Os Cadastros</a>
 </body>
 </html>

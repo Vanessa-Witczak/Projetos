@@ -6,13 +6,12 @@ class Planta(models.Model) :
         ("hortaliça" , "Hortaliça"),
         ("fruta" , " Fruta"),
     ]
-    categoria = models.CharField(max_length= 20, choices = CATEGORIAS)
-    Nome = models.CharField(max_length= 100)
+    categoria =models.CharField(max_length= 20, choices = CATEGORIAS)
+    nome =models.CharField(max_length= 100)
     Data_Do_Plantio = models.CharField(max_length=100)
     Adubo = models.CharField(max_length=100)
     Fase = models.CharField(max_length=100)
-    Observacao = models.TextField(blank = True)
+    Observacao = models.TextField(blank= True)
 
-    class Produto:
-        def descricao(self):
-            return f"{self.Nome} ({self.categoria})"
+    def descricao(self):
+        return f"{self.nome} ({self.categoria})"
