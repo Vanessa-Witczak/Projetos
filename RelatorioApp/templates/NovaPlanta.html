@@ -7,7 +7,7 @@
 </head>
 <body class="container mt-5">
     <h1>{% if form.instance.id %}Editar{% else %}Nova{% endif %} Planta - {{ categoria|title }}</h1>
-    <form method="post" class="mt-4">
+    <form method="post" class="text-center">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit" class="btn btn-success">Salvar</button>
